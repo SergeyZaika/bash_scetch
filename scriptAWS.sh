@@ -2,9 +2,9 @@
 
 IP ()
 {
-echo "First IPaddr enter:"
+echo "First IPaddr enter Debian:"
 read First
-echo "Sacond IPaddr enter:"
+echo "Sacond IPaddr enter RedHat:"
 read Sacond
 }
 IP
@@ -28,8 +28,9 @@ echo "IdentityFile /etc/ssh/NEW.pem"
 } > /etc/ssh/ssh_config
 
 {
-echo "[servers]"
+echo "[Debian]"
 echo "First ansible_ssh_host=$First"
+echo "[RedHat]"
 echo "Sacond ansible_ssh_host=$Sacond"
 } > /etc/ansible/hosts
 
