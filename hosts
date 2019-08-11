@@ -1,4 +1,4 @@
-#test
-[servers]
-First ansible_ssh_host=18.209.5.112
-Sacond ansible_ssh_host=34.227.242.14
+[Debian]
+First ansible_ssh_host=54.226.188.79
+[RedHat]
+Sacond ansible_ssh_host=3.88.101.234
