@@ -31,13 +31,13 @@ echo "Host Sacond"
 echo "HostName $Sacond"
 <<<<<<< HEAD
 echo "User ec2-user"
-echo "IdentityFile /etc/ssh/NEW.pem"
+echo "IdentityFile /etc/ssh/aws.pem"
 echo "Host $First"
 echo "User ubuntu" 
-echo "IdentityFile /etc/ssh/NEW.pem"
+echo "IdentityFile /etc/ssh/aws.pem"
 echo "Host $Sacond"
 echo "User ec2-user"
-echo "IdentityFile /etc/ssh/NEW.pem"
+echo "IdentityFile /etc/ssh/aws.pem"
 } > /etc/ssh/ssh_config
 
 #ansible inventary hosts
