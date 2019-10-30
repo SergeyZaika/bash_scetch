@@ -4,7 +4,7 @@ IP ()
 {
 echo "First IPaddr enter Debian:"
 read First
-echo "Sacond IPaddr enter Debian2:"
+echo "Sacond IPaddr enter RedHat:"
 read Sacond
 }
 IP
@@ -31,14 +31,14 @@ echo "IdentityFile /etc/ssh/awss.pem"
 {
 echo "[Debian]"
 echo "First ansible_ssh_host=$First"
-echo "[Debian2]"
+echo "[RedHat]"
 echo "Sacond ansible_ssh_host=$Sacond"
 } > /etc/ansible/hosts
 
 #del and add group_vars
 rm -R /etc/ansible/group_vars
 mkdir /etc/ansible/group_vars
-touch /etc/ansible/group_vars/Debian.yml /etc/ansible/group_vars/Debian2.yml
+touch /etc/ansible/group_vars/Debian.yml /etc/ansible/group_vars/RedHat.yml
 
 #add ansible_ssh_user 
 {
@@ -49,9 +49,9 @@ ansible_ssh_user: ubuntu
 
 {
 echo "---
-ansible_ssh_user: ubuntu
+ansible_ssh_user: ec2-user
 "
-} > /etc/ansible/group_vars/Debian2.yml
+} > /etc/ansible/group_vars/RedHat.yml
 
 
 
