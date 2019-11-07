@@ -1,0 +1,43 @@
+---
+- name: Deploy
+  hosts: "{{ HOSTS }}"
+  become: yes
+
+  tasks:
+  - name: install aptitude
+    apt:
+      name: aptitude
+      state: latest
+      update_cache: yes
+      force_apt_get: yes
+
+  - name: install java-8-JDK
+    apt:
+      update_cache: yes
+      name: openjdk-8-jdk
+      state: present
+
+  - name: Set java JAVA_HOME
+    shell: export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+  - name: test java-version
+    shell: java -version
+    register: results
+
+  - debug:
+      var: results.stderr_lines
+      msq: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+  - name: install daemonize
+    apt:
+      name: daemonize
+      state: latest
+      update_cache: yes
+
+  - name: Copy Jar-file
+    copy:
+      src: /tmp/java-repo/ "{{FILE}}"
+      dest: /tmp/java-repo
+
+  - name: Start Jar-file
+    shell: java -j "{{FILE}}"
